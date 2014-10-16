@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.selectTool.js"></script>
+<link href="css/jquery.selectTool.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	$(function(){
+		initJSON();
+		$.fn.replaceTool();
+		$('#select1').initTool();
+	});
+function initJSON(){
+	$.ajax({
+		url:'js/setting.json',
+		dataType:'json',
+		type:'POST',
+		async:false,
+		success:function(msg){
+			if(msg){
+				var options={
+					data:msg
+				}
+				$('#select').initTool(options);
+				$('#select2').initTool(options);
+				//$('.select3').initTool(options);
+			}
+		}
+	});
+	/*var options={
+			data:null
+		}
+		$('#select').initTool(options);*/
+}
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+ <div id="select" style=""></div>
+<div id="select2" style=""></div>
+ <div id="select1" style="width:180px;margin-left:100px;">
+	<div class="option" attr="1">wz1</div>
+	<div class="option" attr="2">wz2</div>
+	<div class="option" attr="3">wz3</div>
+</div> 
+<div style="margin-left:100px;">
+	<select id="test">
+		<option value="1">1x</option>
+		<option value="2">2x</option>
+		<option value="3">3x</option>
+	</select>
+</div>
+<div style="margin-left:100px;">
+	<select id="test">
+		<option value="4">4x</option>
+		<option value="5">5x</option>
+		<option value="6">6x</option>
+	</select>
+</div>
+<div style="margin-left:100px;">
+	<select id="test">
+		<option value="1">1x</option>
+		<option value="2">2x</option>
+		<option value="3">3x</option>
+	</select>
+</div>
+<div style="margin-left:100px;">
+	<select id="test">
+		<option value="4">4x</option>
+		<option value="5">5x</option>
+		<option value="6">6x</option>
+	</select>
+</div>
+</body>
+</html>
